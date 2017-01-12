@@ -1,0 +1,2200 @@
+Unit:  0 	Step:  0
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  1 	Right sig =  7 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  1
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  2
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  3
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  4
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  5
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  6
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  7
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  8
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  9
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  1 	Right sig =  6 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  10
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  2 	Right sig =  6 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  11
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  12
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  13
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  14
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  15
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  16
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  17
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  18
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  19
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  20
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  3 	Right sig =  5 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  0 	Step:  21
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 2 ***********
+Unit:  1 	Step:  0
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  6 	Left ang =  45.0 	Right ang =  90.0
+turn right
+-------------------------------
+Unit:  1 	Step:  1
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  6 	Left ang =  45.0 	Right ang =  90.0
+turn right
+-------------------------------
+Unit:  1 	Step:  2
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  6 	Left ang =  45.0 	Right ang =  90.0
+turn right
+-------------------------------
+Unit:  1 	Step:  3
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  6 	Left ang =  45.0 	Right ang =  90.0
+turn right
+-------------------------------
+Unit:  1 	Step:  4
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  7 	Left ang =  45.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  5
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  6
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  7
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  8
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  9
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  10
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  11
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  12
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  13
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  14
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  6 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  15
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  0 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  1 	Step:  16
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  0 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  1 	Step:  17
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  1 	Right sig =  7 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  18
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  2 	Right sig =  7 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  19
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  2 	Right sig =  7 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  20
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  2 	Right sig =  7 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  21
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  2 	Right sig =  7 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  22
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  2 	Right sig =  7 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  23
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  3 	Right sig =  7 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  24
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  3 	Right sig =  7 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  25
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  3 	Right sig =  7 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  26
+DETECTED OBSTACLE
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  1 	Right sig =  5 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  27
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  1 	Right sig =  5 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  28
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  1 	Right sig =  5 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  29
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  1 	Right sig =  4 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  30
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  1 	Right sig =  4 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  31
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  1 	Right sig =  4 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  32
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  33
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  34
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  35
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  36
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  90.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  37
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  38
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  39
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  40
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  1 	Step:  41
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 3 ***********
+Unit:  2 	Step:  0
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  45.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  1
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  45.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  2
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  45.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  3
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  4
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  5
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  6
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  7
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  8
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  9
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  10
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  11
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  12
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  13
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  14
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  15
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  16
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  17
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  18
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  19
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  20
+DETECTED OBSTACLE
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  21
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  22
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  23
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  6 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  24
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  6 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  25
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  26
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  27
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  28
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  29
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  30
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  31
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  32
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  2 	Step:  33
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 2 ***********
+Unit:  3 	Step:  0
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  3 	Step:  1
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  3 	Step:  2
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  3 	Step:  3
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  3 	Step:  4
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  5
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  6
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  7
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  8
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  9
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  10
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  11
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  12
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  13
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  14
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  15
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  16
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  17
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  18
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  19
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  20
+DETECTED OBSTACLE
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  21
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  22
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  6 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  23
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  6 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  24
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  6 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  25
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  6 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  26
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  27
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  28
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  29
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  30
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  31
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  32
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  33
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  34
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  35
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  36
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  3 	Step:  37
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 3 ***********
+Unit:  4 	Step:  0
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  1 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  4 	Step:  1
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  1 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  4 	Step:  2
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  1 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  4 	Step:  3
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  1 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  4 	Step:  4
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  4 	Step:  5
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  4 	Step:  6
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  4 	Step:  7
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  4 	Step:  8
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  9
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  10
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  11
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  12
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  13
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  14
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  15
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  16
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  17
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  18
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  19
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  20
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  21
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  22
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  23
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  24
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  25
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  26
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  27
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  28
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  29
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  30
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  31
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  32
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  33
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  34
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  35
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  36
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  37
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  0.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  38
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  0.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  39
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  0.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  40
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  0.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  41
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  0.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  42
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  0.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  43
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  0.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  44
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  0.0 	Right ang =  135.0
+move fwd
+-------------------------------
+Unit:  4 	Step:  45
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 1 ***********
+Unit:  5 	Step:  0
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  0 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  5 	Step:  1
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  5 	Step:  2
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  5 	Step:  3
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  4
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  5
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  6
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  7
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  8
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  9
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  10
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  11
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  12
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  13
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  14
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  15
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  16
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  17
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  18
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  19
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  7 	Right sig =  3 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  20
+DETECTED OBSTACLE
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  5 	Right sig =  1 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  21
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  5 	Right sig =  1 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  22
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  5 	Right sig =  1 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  23
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  5 	Right sig =  1 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  24
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  5 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  25
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  26
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  27
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  28
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  29
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  30
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  31
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  4 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  32
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  33
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  34
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  35
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  36
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  37
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  38
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  39
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  40
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  41
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  42
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  43
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  44
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  45
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  46
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  47
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  48
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  49
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  50
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  51
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  52
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  5 	Step:  53
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 2 ***********
+Unit:  6 	Step:  0
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  1
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  2
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  3
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  3 	Right sig =  4 	Left ang =  90.0 	Right ang =  45.0
+turn 180
+-------------------------------
+Unit:  6 	Step:  4
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  1 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  6 	Step:  5
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  6 	Step:  6
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  6 	Step:  7
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  6 	Step:  8
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  6 	Step:  9
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  10
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  11
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  12
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  13
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  14
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  15
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  16
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  17
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  18
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  19
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  20
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  21
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  22
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  23
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  24
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  25
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  26
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  27
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  28
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  29
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  30
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  31
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  32
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  33
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  34
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  35
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  36
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  37
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  38
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  39
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  40
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  6 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  41
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  42
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  43
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  44
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  45
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  46
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  47
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  5 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  48
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  5 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  49
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  5 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  50
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  5 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  51
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  5 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  52
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  5 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  53
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  54
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  4 	Right sig =  2 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  6 	Step:  55
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 3 ***********
+Unit:  7 	Step:  0
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  1 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  1
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  1 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  2
+frontier passed:  False 		frontier ang:  0.0
+Left sig =  1 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  3
+frontier passed:  False 		frontier ang:  0.0
+Left sig =  1 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  4
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  5
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  6
+frontier passed:  False 		frontier ang:  0.0
+Left sig =  0 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  7
+frontier passed:  False 		frontier ang:  0.0
+Left sig =  0 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  8
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  9
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  10
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  11
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  12
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  13
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  14
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  15
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  16
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  17
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  18
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  19
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  20
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  21
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  22
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  23
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  24
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  25
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  26
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  27
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  28
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  29
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  30
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  31
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  32
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  33
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  34
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  35
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  6 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  36
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  4 	Right sig =  7 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  37
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  4 	Right sig =  7 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  38
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  4 	Right sig =  7 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  39
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  4 	Right sig =  7 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  40
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  2 	Right sig =  5 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  41
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  42
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  43
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  44
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  45
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  2 	Right sig =  4 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  46
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  3 	Right sig =  4 	Left ang =  90.0 	Right ang =  45.0
+turn 180
+-------------------------------
+Unit:  7 	Step:  47
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  1 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  48
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  49
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  50
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  51
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  7 	Step:  52
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  53
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  54
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  55
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  56
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  57
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  58
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  59
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  60
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  61
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  62
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  7 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  63
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  6 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  64
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  65
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  66
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  67
+frontier passed:  True 		frontier ang:  135.0
+Left sig =  6 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  68
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  69
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  70
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  71
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  72
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  7 	Step:  73
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 1 ***********
+Unit:  8 	Step:  0
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  2 	Right sig =  3 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  1
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  1 	Right sig =  3 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  2
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  1 	Right sig =  3 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  3
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  1 	Right sig =  3 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  4
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  1 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  5
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  6
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  7
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  0 	Right sig =  2 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  8
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+turn left
+-------------------------------
+Unit:  8 	Step:  9
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  90.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  10
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  11
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  12
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  13
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  14
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  15
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  16
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  4 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  17
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  18
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  4 	Right sig =  0 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  19
+DETECTED OBSTACLE
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  20
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  21
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  22
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  23
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  24
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  25
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  26
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  27
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  28
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  29
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  30
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  31
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  32
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  33
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  8 	Step:  34
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
+*********** New frontier bot is robot # 2 ***********
+Unit:  9 	Step:  0
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  45.0 	Right ang =  90.0
+turn left
+-------------------------------
+Unit:  9 	Step:  1
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  45.0 	Right ang =  90.0
+turn left
+-------------------------------
+Unit:  9 	Step:  2
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  45.0 	Right ang =  90.0
+turn left
+-------------------------------
+Unit:  9 	Step:  3
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  0 	Right sig =  1 	Left ang =  45.0 	Right ang =  90.0
+turn left
+-------------------------------
+Unit:  9 	Step:  4
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  45.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  5
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  45.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  6
+frontier passed:  False 		frontier ang:  45.0
+Left sig =  7 	Right sig =  0 	Left ang =  45.0 	Right ang =  90.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  7
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  8
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  9
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  10
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  11
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  12
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  13
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  7 	Right sig =  1 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  14
+DETECTED OBSTACLE
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  5 	Right sig =  7 	Left ang =  45.0 	Right ang =  45.0
+turn right
+-------------------------------
+Unit:  9 	Step:  15
+frontier passed:  False 		frontier ang:  90.0
+Left sig =  5 	Right sig =  7 	Left ang =  45.0 	Right ang =  45.0
+turn right
+-------------------------------
+Unit:  9 	Step:  16
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  17
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  45.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  18
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  19
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  20
+frontier passed:  False 		frontier ang:  135.0
+Left sig =  5 	Right sig =  0 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  21
+frontier passed:  False 		frontier ang:  180.0
+REACHED FRONTIER EDGE
+Left sig =  4 	Right sig =  0 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  22
+DETECTED OBSTACLE
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  23
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  45.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  24
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  0.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  25
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  26
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  27
+frontier passed:  True 		frontier ang:  180.0
+Left sig =  6 	Right sig =  2 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  28
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  29
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  30
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  45.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  31
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  90.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  32
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  90.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  33
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  90.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  34
+frontier passed:  True 		frontier ang:  90.0
+Left sig =  5 	Right sig =  3 	Left ang =  90.0 	Right ang =  0.0
+move fwd
+-------------------------------
+Unit:  9 	Step:  35
+frontier passed:  True 		frontier ang:  45.0
+STOP!!!
