@@ -1,0 +1,92 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bedmas.ash.the_bedmas_game.AnswerActivity"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/green">
+
+    <LinearLayout
+        android:id="@+id/ans_opcards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ans_op1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:adjustViewBounds="true"/>
+
+        <ImageView
+            android:id="@+id/ans_op2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:adjustViewBounds="true"/>
+
+        <ImageView
+            android:id="@+id/ans_op3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ans_qu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@id/ans_opcards"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"/>
+
+<ScrollView
+    android:id="@+id/scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/ans_qu"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:typeface="sans"/>
+
+    </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/play_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:padding="20dp"
+        android:text="PLAY AGAIN"
+        android:background="@color/shale"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+CC     = "C:\Program Files (x86)\MATLAB\R2014a\sys\lcc\bin\lcc.exe"
+LD     = "C:\Program Files (x86)\MATLAB\R2014a\sys\lcc\bin\lcclnk.exe"
+LIBCMD = "C:\Program Files (x86)\MATLAB\R2014a\sys\lcc\bin\lcclib.exe"
+CFLAGS = -c -Zp8 -DMATLAB_MEX_FILE -noregistrylookup 
+LDFLAGS = -s -dll -L"C:\Program Files (x86)\MATLAB\R2014a\sys\lcc\lib" 
+LIBFLAGS = 
+
+OBJECTS = \
+	"flying_ip_1_sfun.obj"\
+	"c1_flying_ip_1.obj"\
+	"c2_flying_ip_1.obj"\
+	"c3_flying_ip_1.obj"\
+	"c4_flying_ip_1.obj"\
+	"c5_flying_ip_1.obj"\
+	"flying_ip_1_sfun_registry.obj"\
+	"lccstub.obj"\
+	"C:\Program Files (x86)\MATLAB\R2014a\sys\lcc\mex\lccdef.def"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\sf_runtime.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libmwblas.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libmx.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libmex.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libmat.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libfixedpoint.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libut.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libmwmathutil.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libemlrt.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\extern\lib\win32\lcc\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014a\lib\win32\libippmwipt.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files (x86)\MATLAB\R2014a\sys\lcc\include"  -I"C:\Program Files (x86)\MATLAB\R2014a\extern\include"  -I"C:\Program Files (x86)\MATLAB\R2014a\simulink\include"  -I"C:\Program Files (x86)\MATLAB\R2014a\stateflow\c\mex\include"  -I"C:\Program Files (x86)\MATLAB\R2014a\rtw\c\src"  -I"C:\Users\Ashlin\Documents\MATLAB\Inverted pendulum\slprj\_sfprj\flying_ip_1\_self\sfun\src" 
+ 
+
+flying_ip_1_sfun.mexw32 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o flying_ip_1_sfun.mexw32 @flying_ip_1_sfun.lmko
+flying_ip_1_sfun.obj :	"flying_ip_1_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "flying_ip_1_sfun.c"
+c1_flying_ip_1.obj :	"c1_flying_ip_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_flying_ip_1.c"
+c2_flying_ip_1.obj :	"c2_flying_ip_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_flying_ip_1.c"
+c3_flying_ip_1.obj :	"c3_flying_ip_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_flying_ip_1.c"
+c4_flying_ip_1.obj :	"c4_flying_ip_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_flying_ip_1.c"
+c5_flying_ip_1.obj :	"c5_flying_ip_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_flying_ip_1.c"
+flying_ip_1_sfun_registry.obj :	"flying_ip_1_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "flying_ip_1_sfun_registry.c"
+lccstub.obj :	"C:\Program Files (x86)\MATLAB\R2014a\sys\lcc\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files (x86)\MATLAB\R2014a\sys\lcc\mex\lccstub.c"

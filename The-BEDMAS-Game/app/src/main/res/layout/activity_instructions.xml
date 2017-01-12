@@ -1,0 +1,134 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bedmas.ash.the_bedmas_game.InstructionsActivity"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/title"
+            android:text="The BEDMAS Game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:typeface="sans"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/text_basic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="left"
+            android:layout_below="@id/title"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:scrollHorizontally="false"
+            android:textSize="15sp"
+            android:typeface="sans"/>
+
+        <TextView
+            android:id="@+id/levels"
+            android:text="Levels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/text_basic"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:typeface="sans"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/text_levels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="left"
+            android:layout_below="@id/levels"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:scrollHorizontally="false"
+            android:textSize="15sp"
+            android:typeface="sans"/>
+
+        <TextView
+            android:id="@+id/rounding"
+            android:text="Rounding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/text_levels"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:typeface="sans"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/text_rounding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="left"
+            android:layout_below="@id/rounding"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:scrollHorizontally="false"
+            android:textSize="15sp"
+            android:typeface="sans"/>
+
+        <TextView
+            android:id="@+id/scoring"
+            android:text="Scoring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/text_rounding"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:typeface="sans"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/text_scoring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="left"
+            android:layout_below="@id/scoring"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:scrollHorizontally="false"
+            android:textSize="15sp"
+            android:typeface="sans"/>
+
+        <Button
+            android:id="@+id/button_instructions_okay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/text_scoring"
+            android:padding="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Got it!"
+            android:background="@color/shale"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.bedmas.ash.the_bedmas_game.SettingsActivity">
+
+    <LinearLayout
+        android:id="@+id/linlay_settings_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/linlay_difficutly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Difficutly:"
+                android:textSize="20sp"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp"/>
+
+            <Spinner
+                android:id="@+id/dropdown_difficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkbox_show_answers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show answers?"
+            android:typeface="sans"
+            android:textSize="18sp"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_time_sessions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Countdown?"
+            android:typeface="sans"
+            android:textSize="18sp"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_settings_okay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Save settings"
+        android:layout_below="@id/linlay_settings_activity"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/shale"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>
