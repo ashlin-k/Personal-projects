@@ -1,0 +1,18 @@
+This folder contains the following projects:
+
+1. Inverted pendulum (2016) 
+This is a Matlab/Simulink plant module of an inverted pendulum mounted on top of a quadcopter (QC). The equations that describe the physical system were taken from various papers, which can be provided upon request. As an exercise in deriving these equations, I went through the mathematical analysis myself. My mathematical analysis can be provided upon request.
+
+2. Maximum area triangulation (2016-2017) 
+This is a simulation written in Python that simulates a Simultaneous Localization and Mapping (SLAM) algorithm called Maximum Area Triangulation (MAT). The algorithm aims to cover the maximum possible amount of area given a bounded number of robots. A video explanation can be found here: https://www.youtube.com/watch?v=V5vpwVFMPqs. My adaptation only employs 3 robots, as that is what our project is limited to. This algorithm currently only uses angle data (ie. robots can only transmit and detect radial signals from other robots). Odometry data has not yet been used, but can be used to improve accuracy.
+
+3. Sumobots (2015)
+Sumobots is a robotic competition with two components: Sumobot Tournament and a Wall Following competition. The first is a competition where two robots are placed in a circle (black surface with a white rim), and the first robot to exit the ring or get pushed out is the loser. The Wall Following competition requires the robot to move parallel to a wall in the shortest amount of time (timing and accuracy are both important). Libraries were written in C++ to abstract basic sensory and motor functions. 
+Our robot was designed to use a Raspberry Pi and Pi cam to detect other robots in the ring, and this information would be passed to the Arduino, which controls the motors. Specifically, the Pi would provide the Arduino with the angle direction of the enemy robot relative to forward direction, and a target velocity to reach the enemy robot.
+
+4. TennisBooker (2016, ongoing maintenance)
+TennisBooker is a program that automatically books tennis courts online. Users may use a Windows batch file to specify the times and courts they would like to book, and what time they would like the scheduler to run at. The batch file must be run automatically by a user program such as Windows Task Scheduler. The batch file executes a jar (java executable) file, which opens Chrome (can also work for Firefox) and books the requested courts online. This application uses the Selenium API for all browser interactions.
+
+5. The BEDMAS Game (2015)
+The BEDMAS Game is an Android mobile application where users must use the rules of BEDMAS (brackets, exponents, division, multiplication, addition, subtraction) to equate three random numbers to a given answer number. Numbers are represented as playing cards (Jack = 11, Queen = 12, King = 13). Division quotients are rounded to the nearest integer. 
+The application was coded in Java. It involves a number of programming skills such as GUI design, long term memory storage and custom algorithm development.
