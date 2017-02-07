@@ -59,8 +59,8 @@ int main(int argc, char **argv)
     colourFilter = argv[1];
   }
 
-  char* fileEnv = "/home/ashlin/Desktop/testbench_4.jpg";
-  char* fileRobots = "/home/ashlin/Desktop/testbench_robots.jpg";
+  char* fileEnv = "testbench_4.jpg";
+  char* fileRobots = "testbench_robots.jpg";
 
   Mat imgObstacles, imgRobots;
   imgObstacles = getImage(fileEnv, "green");  
@@ -215,6 +215,7 @@ nav_msgs::OccupancyGrid convertMatToOccGrid(Mat *m)
   return occ;
 }
 
+// still in progress
 double getResolution(Mat *m)
 {
   // get inner rectangle from border 
@@ -224,6 +225,8 @@ double getResolution(Mat *m)
   return 0.00001;
 }
 
+
+// still in progress
 geometry_msgs::Pose getOrigin(Mat *m)
 {
   double x = 0;
