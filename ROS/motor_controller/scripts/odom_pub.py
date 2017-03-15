@@ -5,6 +5,7 @@ import rospy
 from math import sin, cos, pi
 import tf
 import time
+# from encoder import Encoder
 
 seq = 0
 pos_x = 0.0
@@ -29,15 +30,19 @@ def getOdometry():
 	v_left = 0.0
 	v_right = 0.0
 
+	# if encoders are not None, then get distance and velocity measurements from each wheel
 	if (encoder_left != None) and (encoder_right != None):
 		d_left = encoder_left.getDistance()
 		d_right	= encoder_right.getDistance()
 		v_left = encoder_left.getVelocity()
 		v_right = encoder_right.getVelocity()
 
+	# calculate net distance traveled and net angle turned from wheel distances
 	distance = ( d_left + d_right ) / 2
 	theta = ( d_left - d_right ) / R
 
+	# if the robot has moved, then calculate the x and y components of distance moved
+	# and add this to the overall position
 	if (distance != 0):
 	        # calculate distance traveled in x and y
         	x = cos( theta ) * distance
@@ -48,12 +53,15 @@ def getOdometry():
         	pos_y = pos_y + ( sin( pos_theta ) * x + cos( pos_theta ) * y )
 
 
+        # calculate the current velocity in the x and y directions
     	vel_lin_x = (R/2) * (v_left + v_right) * cos(pos_theta)
     	vel_lin_y = (R/2) * (v_left + v_right) * sin(pos_theta)
     	vel_ang_z = (v_right - v_left) / R
 
+    	# create a quaternion from the roll, pitch and yaw (theta)
     	odom_quat = tf.transformations.quaternion_from_euler(0, 0, pos_theta)
 
+    	# create the odometry message using the above information
     	odom.header.seq = seq
     	seq = seq + 1
     	odom.header.stamp = rospy.get_rostime()
@@ -92,7 +100,5 @@ if __name__=="__main__":
 	while not rospy.is_shutdown():
 
 		odom = getOdometry()
-
 		pub.publish(odom)
-
 		time.sleep(time_delay)

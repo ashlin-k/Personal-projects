@@ -38,14 +38,14 @@ class PID:
 		measured_dr = 0.0
 
 		try:
-			print "before get"
+			# print "before get"
 			target_dx = twist.linear.x
 			target_dy = twist.linear.y
 			target_dr = twist.angular.z
 			measured_dx = odom.twist.twist.linear.x
 			measured_dy = odom.twist.twist.linear.y
 			measured_dr = odom.twist.twist.angular.z
-			print "after get"
+			# print "after get"
 		except:
 			print "Cannot access twist or odom info."
 
@@ -53,9 +53,9 @@ class PID:
 		elif (target_dx < -1*self.MAX_LIN_VELOCITY): target_dx = (-1) * self.MAX_LIN_VELOCITY
 
 
-		error_dx = measured_dx - target_dx
-		error_dy = measured_dy - target_dy
-		error_dr = measured_dr - target_dr
+		error_dx = target_dx - measured_dx
+		error_dy = target_dy - measured_dy
+		error_dr = target_dr - measured_dr
 		time_now = rospy.get_time()
 		deltaT = time_now - self.time_prev
 		self.time_prev = time_now
@@ -88,7 +88,7 @@ class PID:
 	    	if (output_dr > self.MAX_ANG_VELOCITY): output_dr = self.MAX_ANG_VELOCITY
 	    	elif (output_dr < -1*self.MAX_ANG_VELOCITY):output_dr = -1 * self.MAX_ANG_VELOCITY 
 
-	    	rospy.loginfo("self_dx: %f, error dx: %f, output dx: %f, output dr: %f" % (measured_dx, error_dx, output_dx, output_dr))
+	    	rospy.loginfo("PID: self_dx: %f, error dx: %f, output dx: %f, output dr: %f" % (measured_dx, error_dx, output_dx, output_dr))
 
 	    	return output_dx, output_dy, output_dr
 

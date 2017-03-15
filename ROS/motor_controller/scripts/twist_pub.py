@@ -114,13 +114,13 @@ if __name__=="__main__":
 					break
 
 			twist = Twist()
-			twist.linear.x = x*speed; 
-			twist.linear.y = y*speed; 
-			twist.linear.z = z*speed;
-			rospy.loginfo("lin_x: %f lin_y: %f" % (twist.linear.x, twist.linear.y))
+			twist.linear.x = x*speed 
+			twist.linear.y = y*speed 
+			twist.linear.z = z*speed
 			twist.angular.x = 0; 
 			twist.angular.y = 0; 
 			twist.angular.z = th*turn
+			rospy.loginfo("PUB: lin_x: %f lin_y: %f ang_z %f" % (twist.linear.x, twist.linear.y, twist.angular.z))
 			pub.publish(twist)
 
 	except:
