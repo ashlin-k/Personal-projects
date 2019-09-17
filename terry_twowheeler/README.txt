@@ -1,0 +1,1 @@
+This project is a Gazebo model of a two-wheel mobile robot with sensors (3D LIDAR, camera, odometry and IMU). The LIDAR sensor was developed from scratch based on the velodyne LIDAR sensor described here: http://gazebosim.org/tutorials?tut=guided_i1. 
