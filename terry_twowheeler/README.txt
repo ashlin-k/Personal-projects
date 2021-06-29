@@ -1,0 +1,1 @@
+This project is a Gazebo model of a two-wheel mobile robot with sensors (3D LIDAR, camera, odometry and IMU). The file urdf/terry_model.xacro uses the standard 2D LIDAR provided by Gazebo, while urdf/terry_model/3DLidar.xacro creates a LIDAR sensor based on the velodyne LIDAR sensor described here: http://gazebosim.org/tutorials?tut=guided_i1. 
