@@ -7,9 +7,9 @@ import numpy as np
 import argparse
 from transformer import Transformer
 from preprocess_data import get_dataset, preprocess_sentence
-from chatbot import evaluate
+from testing import evaluate
 
-VOCAB_SIZE = 304713
+VOCAB_SIZE = 2**13
 NUM_LAYERS = 2
 NUM_UNITS = 512
 D_MODEL = 256
@@ -20,6 +20,12 @@ NUM_EPOCHS = 20
 BATCH_SIZE = 64
 
 optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=0.001, beta1=0.9, beta2=0.98, epsilon=1e-9)
+
+# https://leakyrelu.com/2020/01/01/difference-between-categorical-and-sparse-categorical-cross-entropy-loss-function/
+# def SparseCategoricalCrossentropy(y_true : tf.Tensor, y_predict : tf.Tensor) -> (tf.Tensor):
+
+#     num_samples = y_predict.shape[0]
+#     return -(tf.reduce_sum(y_predict[tf.range(num_samples), y_true]))
 
 def get_args() -> (argparse.Namespace):
     	
@@ -43,22 +49,16 @@ def get_args() -> (argparse.Namespace):
 	hparams = parser.parse_args()
 	return hparams
 
-# https://leakyrelu.com/2020/01/01/difference-between-categorical-and-sparse-categorical-cross-entropy-loss-function/
-def SparseCategoricalCrossentropy(y_true : tf.Tensor, y_predict : tf.Tensor) -> (tf.Tensor):
+def loss_function(y_true : tf.Tensor, y_predict : tf.Tensor) -> (tf.Tensor):
 
-    num_samples = y_predict.shape[0]
-    return -(tf.reduce_sum(y_pred[tf.range(num_samples), y_true]))
-
-def loss_function(y_true : tf.Tensor, y_pred : tf.Tensor) -> (tf.Tensor):
-
-    y_true = tf.reshape(y_true, shape=(-1, MAX_LENGTH - 1))
+    mask = tf.math.logical_not(tf.math.equal(y_true, 0))
     
-    loss = SparseCategoricalCrossentropy(y_true, y_pred)
+    # loss = SparseCategoricalCrossentropy(y_true, y_pred)
+    loss = tf.keras.losses.SparseCategoricalCrossentropy()(y_true, y_predict)
+    mask = tf.cast(mask, dtype=loss.dtype)
+    loss *= mask
 
-    mask = tf.cast(tf.not_equal(y_true, 0), tf.float32)
-    loss = tf.multiply(loss, mask)
-
-    return tf.reduce_mean(loss)
+    return tf.reduce_sum(loss)/tf.reduce_sum(mask)
 
 def accuracy(y_true : tf.Tensor, y_pred : tf.Tensor) -> (tf.Tensor):
 
@@ -70,7 +70,7 @@ def accuracy(y_true : tf.Tensor, y_pred : tf.Tensor) -> (tf.Tensor):
 def train_step(model : Transformer, x : tf.Tensor, dec_inputs : tf.Tensor, y_true : tf.Tensor) -> (tf.Tensor, tf.Tensor):
     
     with tf.GradientTape() as tape:
-        y_predict = model(x, dec_inputs)
+        y_predict = model(x, dec_inputs, training=True)
         loss = loss_function(y_true, y_predict)
         # l2_losses = model.get_l2_loss(loss.shape)
         # loss = tf.math.add(loss, 1e-5*l2_losses)
@@ -102,10 +102,13 @@ if __name__ == "__main__":
         for step, (x_batch_train, y_batch_train) in enumerate(dataset):
 
             y_true = y_batch_train
-            training_loss, y_predict = train_step(model, x_batch_train, dec_inputs, y_batch_train)        
+            training_loss, y_predict = train_step(model, x_batch_train['inputs'], \
+                x_batch_train['dec_inputs'], y_batch_train)        
         
         training_losses[i] = training_loss
         training_accuracy[i] = accuracy(y_true, y_predict)
+
+        print("Epoch", i+1, ", loss =", training_losses[i], ", accuracy =", training_accuracy[i])
     
 
     ### TEST ###

@@ -5,21 +5,29 @@ import tensorflow as tf
 from tensorflow.compat.v1 import layers
 import numpy as np
 from typing import Callable
-from embedding import *
 
 # tutorial: https://medium.com/tensorflow/a-transformer-chatbot-tutorial-with-tensorflow-2-0-88bf59e66fe2
+#           https://www.tensorflow.org/text/tutorials/transformer 
 # reference code: https://github.com/bryanlimy/tf2-transformer-chatbot/blob/master/transformer/model.py
 
-def create_padding_mask(x):
+def create_padding_mask(x : tf.Tensor) -> (tf.Tensor):
     mask = tf.cast(tf.math.equal(x, 0), dtype=tf.float32)
-    return mask[:, tf.newaxis, tf.newaxis, :]
+    return mask [:, tf.newaxis, tf.newaxis, :]
 
-def create_look_ahead_mask(x):
+def create_look_ahead_mask(x : tf.Tensor) -> (tf.Tensor):
     seq_len = tf.shape(x)[1]
-    look_ahead_mask = 1 - tf.linalg.band_part( \
-        tf.ones((seq_len, seq_len), dtype=tf.float32), -1, 0)
+    look_ahead_mask = 1 - tf.linalg.band_part(tf.ones((seq_len, seq_len), dtype=tf.float32), -1, 0)
     padding_mask = create_padding_mask(x)
     return tf.maximum(look_ahead_mask, padding_mask)
+    # return look_ahead_mask
+
+def resize_padding_mask(mask : tf.Tensor, batch_size : int, num_heads : int, q_len : int, k_len : int) -> (tf.Tensor):
+
+    m = tf.reshape(mask, (batch_size, mask.shape[-1]))
+    m = tf.reshape(m, shape=(batch_size, -1, num_heads, 1))
+    m = tf.broadcast_to(m, (batch_size, q_len, num_heads, k_len))
+    m = tf.transpose(m, perm=[0,2,1,3])
+    return m
 
 def scaled_dot_product_attention(query : tf.Tensor, key : tf.Tensor, value : tf.Tensor, \
     mask : tf.Tensor=None) -> (tf.Tensor):
@@ -27,30 +35,62 @@ def scaled_dot_product_attention(query : tf.Tensor, key : tf.Tensor, value : tf.
     '''
     Computes the attention weights for each word, ensuring that we keep word of interest
     and discard irrelevant words.
+    Queries is a set of vectors you want to calculate attention for.
+    Keys is a set of vectors you want to calculate attention against.
+    Values equal keys.
+    1. We dot product the query with each key as a measure of similarity.This produces 
+    weights. 
+    2. The weights are then put through a softmax function to get a value
+    between 0 and 1. This becomes important to get a "weighted-average" of the value vectors.
+    3. We then multiply the weights times the values to get our final single output word vector 
+    representation.
     '''
 
     # attention = softmax,k((Q*K^T) / sqrt(dk)) * V
     # dk is is the depth, or number of columns, in K
 
-    qk = tf.matmul(query, key, transpose_b=True)
+    qk = tf.matmul(query, key, transpose_b=True)    # (..., seq_len_q, seq_len_k)
     depth = tf.cast(key.shape[-1], tf.float32)
     logits = qk / tf.math.sqrt(depth)
 
+    # TODO: this doesn't seem right
     if mask is not None:
-        logits += (mask * -1e9)
+        m = mask
+        if mask.shape[-1] <= logits.shape[-1] or mask.shape[-2] <= logits.shape[-2]:
+            batch_size = query.shape[0]
+            num_heads = query.shape[1]
+            m = resize_padding_mask(mask, batch_size, num_heads, logits.shape[-2], logits.shape[-1])
+        else:
+            m = mask[:, :, :logits.shape[2], :logits.shape[3]]
+        logits += (m * -1e9)
     
-    attention_weights = tf.nn.softmax(logits, axis=-1)
+    # softmax is normalized on the last axis (seq_len_k) so that the scores
+    # add up to 1.
+    attention_weights = tf.nn.softmax(logits, axis=-1)  # (..., seq_len_q, seq_len_k)
+    output = tf.matmul(attention_weights, value)  # (..., seq_len_q, depth_v)
 
-    return tf.matmul(attention_weights, value)
+    return output 
 
 class MultiHeadAttention(tf.Module):
 
     '''
-    This class takes in a dictionary input {"query" : ..., "key" : ..., "value" : ...} and 
-    runs these through Dense layers and then splits into multiple heads. The attention output
-    for each head is then concatenated and run through a final Dense layer.
+    This class takes in a dictionary input {"query" : ..., "key" : ..., "value" : ...}.
     Query, key, and value are split into multiple heads because it allows the model to jointly 
     attend to information at different positions from different representational spaces.  
+
+    from: https://stats.stackexchange.com/questions/421935/what-exactly-are-keys-queries-and-values-in-attention-mechanisms
+
+    "There are two self-attending (xN times each) blocks, separately for inputs and outputs 
+    plus cross-attending block transmitting knowledge from inputs to outputs.
+
+    Each self-attending block gets just one set of vectors (embeddings added to positional values). 
+    In this case you are calculating attention for vectors against each other. So Q=K=V. You just 
+    need to calculate attention for each q in Q.
+
+    Cross-attending block transmits knowledge from inputs to outputs. In this case you get K=V 
+    from inputs and Q are received from outputs. I think it's pretty logical: you have database of 
+    knowledge you derive from the inputs and by asking Queries from the output you extract required 
+    knowledge."
 
     d_model = number of dimensions
     num_heads = number of heads
@@ -74,21 +114,40 @@ class MultiHeadAttention(tf.Module):
 
     def split_heads(self, inputs : tf.Tensor, batch_size : int) -> (tf.Tensor):
 
-        inputs = tf.reshape(inputs, shape=(batch_size, -1, self.num_heads, self.depth))
+        num_samples = inputs.shape[1]
+        nHeads = self.num_heads
+        if (num_samples % self.num_heads != 0):
+            nHeads = self.recalculate_num_heads(num_samples)
+        inputs = tf.reshape(inputs, shape=(batch_size, -1, nHeads, self.depth))
         return tf.transpose(inputs, perm=[0,2,1,3])
     
-    def call(self, inputs : dict) -> (tf.Tensor):
+    def recalculate_num_heads(self, dim : int) -> (int):
+
+        n = self.num_heads
+        while n > 1:
+            if dim % n == 0:
+                return n
+            else:
+                n -= 1
+        return n
+    
+    def __call__(self, inputs : dict) -> (tf.Tensor):
 
         query, key, value, mask = inputs['query'], inputs['key'], inputs['value'], inputs['mask']
         batch_size = query.shape[0]
 
         # linear layers
-        query = self.query_dense(query)
+        query = self.query_dense(query)     # (batch_size, seq_len, d_model)
         key = self.key_dense(key)
         value = self.value_dense(value)
 
         # split heads
-        query = self.split_heads(query, batch_size)
+        # Instead of one single attention head, Q, K, and V are split into multiple heads 
+        # because it allows the model to jointly attend to information from different 
+        # representation subspaces at different positions. After the split each head has a 
+        # reduced dimensionality, so the total computation cost is the same as a single head 
+        # attention with full dimensionality.
+        query = self.split_heads(query, batch_size)     # (batch_size, num_heads, seq_len_q, depth)
         key = self.split_heads(key, batch_size)
         value = self.split_heads(value, batch_size)
 
@@ -109,9 +168,9 @@ class PositionalEncoding(tf.Module):
     embedding vector.
     '''
 
-    def __init__(self, position : int, d_model : int):
+    def __init__(self, position : int, d_model : int, name : str="encoding_layer"):
 
-        super(PositionalEncoding, self).__init__()
+        super(PositionalEncoding, self).__init__(name=name)
         self.pos_encoding = self.positional_encoding(position, d_model)
 
     def get_angles(self, position : tf.Tensor, i : tf.Tensor, d_model : int) -> (float):
@@ -136,54 +195,65 @@ class PositionalEncoding(tf.Module):
 
         return tf.cast(pos_encoding, tf.float32)
     
-    def call(self, inputs : tf.Tensor) -> (tf.Tensor):
+    def __call__(self, inputs : tf.Tensor) -> (tf.Tensor):
 
         return inputs + self.pos_encoding[:, :inputs.shape[1], :]
 
 class InputLayer(tf.Module):
 
-    def __init__(self):
+    def __init__(self, name : str="input_layer"):
 
-        self.input = None
+        super(InputLayer, self).__init__(name=name)
     
     def __call__(self, x : tf.Tensor) -> (tf.Tensor):
 
-        self.input = x
         return x
 
 class DropoutLayer(tf.Module):
     
     def __init__(self, dropout_rate : float=0.0, name="dropout_layer"):
-        super().__init__(name=name)
+        super(DropoutLayer, self).__init__(name=name)
 
         self.dropout = dropout_rate
     
-    def __call__(self, x : tf.Tensor) -> (tf.Tensor):
-        return tf.nn.dropout(x, self.dropout, seed=1)
+    def __call__(self, x : tf.Tensor, training : bool=True) -> (tf.Tensor):
+
+        if training:
+            return tf.nn.dropout(x, self.dropout, seed=1)
+        else:
+            return x
 
 class NormalizationLayer(tf.Module):
 
-    def __init__(self, epsilon : float = 1e-6, axes : int=[1], name=None):
-        super().__init__(name=name)
+    def __init__(self, epsilon : float = 1e-6, samples_axis : int=1, name : str="normalization_layer"):
+        super(NormalizationLayer, self).__init__(name=name)
 
         self.epsilon = epsilon
-        self.axes = axes
+        self.samples_axis = samples_axis
 
     def __call__(self, x : tf.Tensor) -> (tf.Tensor):
 
-        mean_i = tf.reduce_sum(x, axis=self.axes) / x.shape[1]
-        var_i = tf.reduce_sum((x - mean_i) ** 2) / x.shape[1]
-        mean_i = tf.reshape(mean_i, shape=(mean_i.shape[0], -1, mean_i.shape[-1]))
-        var_i = tf.reshape(var_i, shape=(var_i.shape[0], -1, var_i.shape[-1]))
+        numSamples = x.shape[self.samples_axis]
+        mean_var_shape = self.get_shape(x.shape)
+        
+        mean_i = tf.reduce_sum(x, axis=self.samples_axis) / numSamples
+        mean_i = tf.reshape(mean_i, shape=mean_var_shape)
+        var_i = tf.reduce_sum((x - mean_i) ** 2, axis=self.samples_axis) / numSamples
+        var_i = tf.reshape(var_i, shape=mean_var_shape)
         x_norm = (x - mean_i) / tf.math.sqrt(var_i + self.epsilon)
 
         return x_norm
+    
+    def get_shape(self, input_dim : tuple) -> (tuple):
+        ret_shape = [i for i in input_dim]
+        ret_shape[self.samples_axis] = -1
+        return ret_shape
 
 class LambdaLayer(tf.Module):
 
-    def __init__(self, expression : Callable[[tf.Tensor], tf.Tensor], name : str=None):
+    def __init__(self, expression : Callable[[tf.Tensor], tf.Tensor], name : str="lambda_layer"):
 
-        super().__init__(name=name)
+        super(LambdaLayer, self).__init__(name=name)
         self.expression = expression
     
     def __call__(self, x : tf.Tensor) -> (tf.Tensor):
@@ -192,34 +262,43 @@ class LambdaLayer(tf.Module):
 
 class EncoderLayer(tf.Module):
     
-    def __init__(units : int, d_model : int, num_heads : int, dropout : float, name : str="encoder_layer"):
+    def __init__(self, units : int, d_model : int, num_heads : int, dropout : float, name : str="encoder_layer"):
 
-        super().__init__(name=name)
+        super(EncoderLayer, self).__init__(name=name)
         self.units = units
         self.d_model = d_model
         self.num_heads = num_heads
         self.dropout = dropout
+
+        self.input_layer = InputLayer(name="encoder_inputs")
+        self.padding_input_layer = InputLayer(name="padding_mask")
+        self.attn_layer = MultiHeadAttention(self.d_model, self.num_heads, name="attention")
+        self.dropout_layer1 = DropoutLayer(dropout_rate=self.dropout, name="dropout1")
+        self.norm_layer1 = NormalizationLayer(samples_axis=1, name="norm1")
+        self.dense_output_layer1 = layers.Dense(units=self.units, activation='relu', name="dense1")
+        self.dense_output_layer2 = layers.Dense(units=self.d_model, name="dense2")
+        self.dropout_layer2 = DropoutLayer(dropout_rate=self.dropout, name="dropout2")
+        self.norm_layer2 = NormalizationLayer(samples_axis=1, name="norm2")
     
-    def __call__(self, x : tf.Tensor, padding_mask : tf.Tensor) -> (tf.Tensor):
+    def __call__(self, x : tf.Tensor, padding_mask : tf.Tensor, training : bool=True) -> (tf.Tensor):
 
-        inputs = InputLayer(name="encoder_inputs")(x)
-        padding_mask = InputLayer(name="padding_mask")(padding_mask)
+        inputs = self.input_layer(x)
+        padding_mask = self.padding_input_layer(padding_mask)
 
-        attention = MultiHeadAttention(self.d_model, self.num_heads, name="attention") \
-            ({
+        attention = self.attn_layer({
                 'query': inputs,
                 'key': inputs,
                 'value': inputs,
                 'mask': padding_mask
             })
 
-        attention = DropoutLayer(self.dropout)
-        attention = NormalizationLayer(axes=[1])(inputs + attention)
+        attention = self.dropout_layer1(attention, training=training)
+        attention = self.norm_layer1(inputs + attention)
 
-        outputs = layers.Dense(units=self.units, activation='relu')(attention)
-        outputs = layers.Dense(units=self.d_model)(outputs)
-        outputs = DropoutLayer(dropout_rate=self.dropout)(outputs)
-        outputs = NormalizationLayer(axes=[1])(attention + outputs)
+        outputs = self.dense_output_layer1(attention)
+        outputs = self.dense_output_layer2(outputs)
+        outputs = self.dropout_layer2(outputs, training=training)
+        outputs = self.norm_layer2(attention + outputs)
 
         return outputs
 
@@ -233,36 +312,48 @@ class DecoderLayer(tf.Module):
         self.num_heads = num_heads
         self.dropout = dropout
 
+        self.input_layer = InputLayer(name="decoder_inputs")
+        self.enc_out_input_layer = InputLayer(name="encoder_outputs")
+        self.lookahead_mask_input_layer = InputLayer(name="lookahead_mask")
+        self.padding_mask_input_layer = InputLayer(name="padding_mask")
+        self.attn_layer1 = MultiHeadAttention(self.d_model, self.num_heads, name="attention1")
+        self.norm_layer1 = NormalizationLayer(samples_axis=1, name="norm1")
+        self.attn_layer2 = MultiHeadAttention(self.d_model, self.num_heads, name="attention2")
+        self.dropout_layer1 = DropoutLayer(dropout_rate=self.dropout, name="dropout1")        
+        self.norm_layer2 = NormalizationLayer(samples_axis=1, name="norm2")
+        self.dense_output_layer1 = layers.Dense(units=self.units, activation='relu', name="dense1")
+        self.dense_output_layer2 = layers.Dense(units=self.d_model, name="dense2")
+        self.dropout_layer2 = DropoutLayer(dropout_rate=self.dropout, name="dropout2")
+        self.norm_layer3 = NormalizationLayer(samples_axis=1, name="norm3")
+
     def __call__(self, x : tf.Tensor, encoder_outputs : tf.Tensor, padding_mask : tf.Tensor, \
-        lookahead_mask : tf.Tensor) -> (tf.Tensor):
+        lookahead_mask : tf.Tensor, training : bool=True) -> (tf.Tensor):
 
-        inputs = InputLayer(name="inputs")(x)
-        enc_outputs = InputLayer(name="encoder_outputs")(encoder_outputs)
-        look_ahead_mask = InputLayer(name="look_ahead_mask")(lookahead_mask)
-        padding_mask = InputLayer(name='padding_mask')(padding_mask)
+        inputs = self.input_layer(x)
+        enc_outputs = self.enc_out_input_layer(encoder_outputs)
+        look_ahead_mask = self.lookahead_mask_input_layer(lookahead_mask)
+        padding_mask = self.padding_mask_input_layer(padding_mask)
 
-        attention1 = MultiHeadAttention(d_model, num_heads, name="attention_1")\
-            (inputs={
+        attention1 = self.attn_layer1(inputs={
             'query': inputs,
             'key': inputs,
             'value': inputs,
             'mask': look_ahead_mask })
 
-        attention1 = NormalizationLayer()(attention1 + inputs)
+        attention1 = self.norm_layer1(attention1 + inputs)
 
-        attention2 = MultiHeadAttention(d_model, num_heads, name="attention_2")\
-            (inputs={
+        attention2 = self.attn_layer2(inputs={
             'query': attention1,
             'key': enc_outputs,
             'value': enc_outputs,
             'mask': padding_mask })
-        attention2 = DropoutLayer(dropout_rate=dropout)(attention2)
-        attention2 = NormalizationLayer()(attention2 + attention1)
+        attention2 = self.dropout_layer1(attention2, training=training)
+        attention2 = self.norm_layer2(attention2 + attention1)
 
-        outputs = layers.Dense(units=units, activation='relu')(attention2)
-        outputs = layers.Dense(units=d_model)(outputs)
-        outputs = layers.Dropout(rate=dropout)(outputs)
-        outputs = NormalizationLayer()(outputs + attention2)
+        outputs = self.dense_output_layer1(attention2)
+        outputs = self.dense_output_layer2(outputs)
+        outputs = self.dropout_layer2(outputs, training=training)
+        outputs = self.norm_layer3(outputs + attention2)
 
         return outputs
 
@@ -271,71 +362,100 @@ class Transformer(tf.Module):
     def __init__(self, vocab_size : int, num_layers : int, units : int, d_model : int, \
         num_heads : int, dropout : float, name : str="transformer"):
 
-        super().__init__(name=name)
+        super(Transformer, self).__init__(name=name)
         self.vocab_size = vocab_size
         self.num_layers = num_layers
         self.units = units
         self.d_model = d_model
         self.num_heads = num_heads
         self.dropout = dropout
+
+        # transformer layers
+        self.input_layer = InputLayer(name="decoder_inputs")
+        self.dec_input_layer = InputLayer(name="encoder_outputs")
+        self.enc_padding_mask_layer = LambdaLayer(create_padding_mask, name='enc_padding_mask')
+        self.lookahead_mask_layer = LambdaLayer(create_look_ahead_mask, name='look_ahead_mask')
+        self.dec_padding_mask_layer = LambdaLayer(create_padding_mask, name='dec_padding_mask')
+        self.dense_output_layer = layers.Dense(units=self.vocab_size, name="outputs")
+
+        # encoder layers
+        self.encoder_input_layer = InputLayer(name="encoder_inputs")
+        self.encoder_padding_mask_input_layer = InputLayer(name="encoder_padding_mask")
+        self.encoder_embedding_layer = tf.keras.layers.Embedding(self.vocab_size, self.d_model, name="encoder_embedding")
+        self.encoder_pos_enc_layer = PositionalEncoding(self.vocab_size, self.d_model, name="encoder_pos_enc")
+        self.encoder_dropout_layer = DropoutLayer(dropout_rate=self.dropout, name="encoder_dropout")
+        self.encoder_enc_layers = [EncoderLayer(self.units, self.d_model, self.num_heads, \
+                self.dropout, name="encoder_layer_{}".format(i),) for i in range(self.num_layers)]
+
+        # decoder layers
+        self.decoder_input_layer = InputLayer(name="decoder_inputs")
+        self.decoder_enc_out_input_layer = InputLayer(name="decoder_enc_outputs")
+        self.decoder_lookahead_mask_input_layer = InputLayer(name="decoder_lookahead_mask")
+        self.decoder_padding_mask_input_layer = InputLayer(name="decoder_padding_mask")
+        self.decoder_embedding_layer = tf.keras.layers.Embedding(self.vocab_size, self.d_model, name="decoder_embedding")
+        self.decoder_pos_enc_layer = PositionalEncoding(self.vocab_size, self.d_model, name="decoder_pos_enc")
+        self.decoder_dropout_layer = DropoutLayer(dropout_rate=self.dropout, name="decoder_dropout")
+        self.decoder_dec_layers = [DecoderLayer(self.units, self.d_model, self.num_heads, \
+                self.dropout, name="decoder_layer_{}".format(i),) for i in range(self.num_layers)]
     
-    def __call__(self, x : tf.Tensor, dec_inputs : tf.Tensor) -> (tf.Tensor):
+    def __call__(self, inputs : tf.Tensor, dec_inputs : tf.Tensor, training : bool=True) -> (tf.Tensor):
 
-        inputs = InputLayer(name="inputs")(x)
-        dec_inputs = InputLayer(name="dec_inputs")(dec_inputs)
+        inputs = self.input_layer(inputs)
+        dec_inputs = self.dec_input_layer(dec_inputs)
 
-        enc_padding_mask = LambdaLayer(create_padding_mask, name='enc_padding_mask')(inputs)
+        # Encoder padding mask
+        enc_padding_mask = self.enc_padding_mask_layer(inputs)
 
-        # mask the future tokens for decoder inputs at the 1st attention block
-        look_ahead_mask = LambdaLayer(create_look_ahead_mask, name='look_ahead_mask')(dec_inputs)
+        # Used in the 1st attention block in the decoder.
+        # It is used to pad and mask future tokens in the input received by
+        # the decoder
+        look_ahead_mask = self.lookahead_mask_layer(dec_inputs)
 
-        # mask the encoder outputs for the 2nd attention block
-        dec_padding_mask = LambdaLayer(create_padding_mask, name='dec_padding_mask')(inputs)
+        # Used in the 2nd attention block in the decoder.
+        # This padding mask is used to mask the encoder outputs.
+        dec_padding_mask = self.dec_padding_mask_layer(inputs)
 
-        enc_outputs = encoder(inputs, enc_padding_mask, self.vocab_size, self.num_layers, self.units, self.d_model, \
-            self.num_heads, self.dropout)
+        enc_outputs = self.encoder(inputs, enc_padding_mask, training)
         
-        dec_outputs = decoder(dec_inputs, enc_outputs, look_ahead_mask, dec_padding_mask, \
-            self.vocab_size, self.num_layers, self.units, self.d_model, self.num_heads, self.dropout)
+        dec_outputs = self.decoder(dec_inputs, enc_outputs, dec_padding_mask, look_ahead_mask, training)
         
-        outputs = layers.Dense(units=self.vocab_size, name="outputs")(dec_outputs)
+        outputs = self.dense_output_layer(dec_outputs)
 
         return outputs
 
-    def encoder(self, x : tf.Tensor, padding_mask : tf.Tensor) -> (tf.Tensor):
+    def encoder(self, inputs : tf.Tensor, padding_mask : tf.Tensor, training : bool=True) -> (tf.Tensor):
 
-        inputs = InputLayer(name="inputs")(x)
-        padding_mask = InputLayer(name="padding_mask")(padding_mask)
+        inputs = self.encoder_input_layer(inputs)
+        padding_mask = self.encoder_padding_mask_input_layer(padding_mask)
+        # padding_mask = tf.keras.Input(shape=(1, 1, None), name="padding_mask")
 
-        embeddings = EmbeddingLayer(self.vocab_size, self.d_model)(inputs)
+        embeddings = self.encoder_embedding_layer(inputs)
         embeddings *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
-        embeddings = PositionalEncoding(self.vocab_size, self.d_model)(embeddings)
+        embeddings = self.encoder_pos_enc_layer(embeddings)
 
-        outputs = DropoutLayer(dropout_rate=self.dropout)(embeddings)
+        outputs = self.encoder_dropout_layer(embeddings, training=training)
 
-        for i in range(num_layers):
-            outputs = EncoderLayer(self.units, self.d_model, self.num_heads, \
-                self.dropout, name="encoder_layer_{}".format(i),)(outputs, padding_mask)
+        for i in range(self.num_layers):
+            outputs = self.encoder_enc_layers[i](outputs, padding_mask, training)
         
         return outputs
 
-    def decoder(self, x : tf.Tensor, encoder_outputs : tf.Tensor, padding_mask : tf.Tensor, \
-        lookahead_mask : tf.Tensor) -> (tf.Tensor):
+    def decoder(self, inputs : tf.Tensor, encoder_outputs : tf.Tensor, padding_mask : tf.Tensor, \
+        lookahead_mask : tf.Tensor, training : bool=True) -> (tf.Tensor):
 
-        inputs = InputLayer(name="inputs")(x)
-        enc_outputs = InputLayer(name="encoder_outputs")(encoder_outputs)
-        look_ahead_mask = InputLayer(name="look_ahead_mask")(lookahead_mask)
-        padding_mask = InputLayer(name='padding_mask')(padding_mask)
+        inputs = self.decoder_input_layer(inputs)
+        enc_outputs = self.decoder_enc_out_input_layer(encoder_outputs)
+        look_ahead_mask = self.decoder_lookahead_mask_input_layer(lookahead_mask)
+        padding_mask = self.decoder_padding_mask_input_layer(padding_mask)
 
-        embeddings = EmbeddingLayer(self.vocab_size, self.d_model)(inputs)
+        embeddings = self.decoder_embedding_layer(inputs)
         embeddings *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
-        embeddings = PositionalEncoding(self.vocab_size, self.d_model)(embeddings)
+        embeddings = self.decoder_pos_enc_layer(embeddings)
 
-        outputs = DropoutLayer(dropout_rate=self.dropout)(embeddings)
+        outputs = self.decoder_dropout_layer(embeddings, training=training)
 
-        for i in range(num_layers):
-            outputs = DecoderLayer(self.units, self.d_model, self.num_heads, self.dropout, \
-                name="decoder_layer_{}".format(i),)(x, encoder_outputs, padding_mask, lookahead_mask)
+        for i in range(self.num_layers):
+            outputs = self.decoder_dec_layers[i](outputs, encoder_outputs, padding_mask, lookahead_mask, training)
         
         return outputs
 
