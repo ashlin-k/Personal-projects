@@ -12,8 +12,9 @@ from testing import evaluate
 VOCAB_SIZE = 2**13
 NUM_LAYERS = 2
 NUM_UNITS = 512
-D_MODEL = 256
-NUM_HEADS = 8
+D_MODEL = 240
+NUM_ENC_HEADS = 8
+NUM_DEC_HEADS = 3
 UNITS = 512
 DROPOUT = 0.1
 NUM_EPOCHS = 20
@@ -41,7 +42,8 @@ def get_args() -> (argparse.Namespace):
 	parser.add_argument('--num_layers', default=NUM_LAYERS, type=int)
 	parser.add_argument('--num_units', default=NUM_UNITS, type=int)
 	parser.add_argument('--d_model', default=D_MODEL, type=int)
-	parser.add_argument('--num_heads', default=NUM_HEADS, type=int)
+	parser.add_argument('--num_enc_heads', default=NUM_ENC_HEADS, type=int)
+	parser.add_argument('--num_dec_heads', default=NUM_DEC_HEADS, type=int)
 	parser.add_argument('--dropout', default=DROPOUT, type=float)
 	parser.add_argument('--activation', default='relu', type=str)
 	parser.add_argument('--epochs', default=NUM_EPOCHS, type=int)
@@ -90,7 +92,7 @@ if __name__ == "__main__":
 
     dataset, tokenizer = get_dataset(hparams)
 
-    model = Transformer(VOCAB_SIZE, NUM_LAYERS, UNITS, D_MODEL, NUM_HEADS, DROPOUT)
+    model = Transformer(VOCAB_SIZE, NUM_LAYERS, UNITS, D_MODEL, NUM_ENC_HEADS, NUM_DEC_HEADS, DROPOUT)
     training_losses, training_accuracy = {}, {}
 
     ### TRAIN ###
