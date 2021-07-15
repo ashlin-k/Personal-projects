@@ -3,6 +3,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 import numpy as np
+from chatbot_preprocess_data import preprocess_sentence
 
 def inference(hparams, model, tokenizer, sentence):
     
@@ -15,7 +16,7 @@ def inference(hparams, model, tokenizer, sentence):
     output = tf.expand_dims(hparams.start_token, 0)
 
     for i in range(hparams.max_length):
-        predictions = model(inputs=[sentence, output], training=False)
+        predictions = model(sentence, output, training=False)
 
         # select the last word from the seq_len dimension
         predictions = predictions[:, -1:, :]

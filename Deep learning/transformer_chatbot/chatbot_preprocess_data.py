@@ -2,10 +2,34 @@ import os
 import re
 import tensorflow as tf
 import tensorflow_datasets as tfds
+import argparse
+import numpy as np
+
+def get_args(params : dict) -> (argparse.Namespace):
+    	
+	parser = argparse.ArgumentParser()
+	parser.add_argument( \
+		'--max_samples',
+		default=25000,
+		type=int,
+		help='maximum number of conversation pairs to use')
+	parser.add_argument( \
+		'--max_length', default=params['max_length'], type=int, help='maximum sentence length')
+	parser.add_argument('--batch_size', default=params['batch_size'], type=int)
+	parser.add_argument('--num_layers', default=params['num_layers'], type=int)
+	parser.add_argument('--num_units', default=params['num_units'], type=int)
+	parser.add_argument('--d_model', default=params['d_model'], type=int)
+	parser.add_argument('--NUM_HEADS', default=params['num_heads'], type=int)
+	parser.add_argument('--dropout', default=params['dropout'], type=float)
+	parser.add_argument('--activation', default='relu', type=str)
+	parser.add_argument('--epochs', default=params['num_epochs'], type=int)
+
+	hparams = parser.parse_args()
+	return hparams
 
 # code taken from: https://github.com/bryanlimy/tf2-transformer-chatbot/blob/master/transformer/dataset.py
 
-def preprocess_sentence(sentence):
+def preprocess_sentence(sentence : str) -> (str):
     	
 	sentence = sentence.lower().strip()
 	# creating a space between a word and the punctuation following it
@@ -37,7 +61,8 @@ def preprocess_sentence(sentence):
 	return sentence
 
 
-def load_conversations(hparams, lines_filename, conversations_filename):
+def load_conversations(hparams  : argparse.Namespace, lines_filename :str, conversations_filename : str) \
+	-> (list, list):
     	
 	# dictionary of line id to text
 	id2line = {}
@@ -63,7 +88,9 @@ def load_conversations(hparams, lines_filename, conversations_filename):
 	return questions, answers
 
 
-def tokenize_and_filter(hparams, tokenizer, questions, answers):
+def tokenize_and_filter(hparams : argparse.Namespace, \
+	tokenizer : tfds.core.deprecated.text.subword_text_encoder.SubwordTextEncoder, 
+	questions : list, answers : list) -> (np.array, np.array):
     	
 	tokenized_questions, tokenized_answers = [], []
 
@@ -86,7 +113,8 @@ def tokenize_and_filter(hparams, tokenizer, questions, answers):
 	return tokenized_questions, tokenized_answers
 
 
-def get_dataset(hparams):
+def get_cmdc_dataset(hparams : argparse.Namespace) -> (tf.python.data.ops.dataset_ops.PrefetchDataset, \
+	tfds.core.deprecated.text.subword_text_encoder.SubwordTextEncoder):
     	
 	# download corpus
 	path_to_zip = tf.keras.utils.get_file( \
@@ -103,6 +131,13 @@ def get_dataset(hparams):
 
 	questions, answers = load_conversations(hparams, lines_filename, conversations_filename)
 
+	return get_tolkenized_dataset(hparams, questions, answers)
+
+
+def get_tolkenized_dataset(hparams : argparse.Namespace, questions : list, answers : list) -> \
+	(tf.python.data.ops.dataset_ops.PrefetchDataset, 
+	tfds.core.deprecated.text.subword_text_encoder.SubwordTextEncoder):
+
 	tokenizer = tfds.deprecated.text.SubwordTextEncoder.build_from_corpus( \
 		questions + answers, target_vocab_size=2**13)
 
@@ -112,10 +147,14 @@ def get_dataset(hparams):
 
 	questions, answers = tokenize_and_filter(hparams, tokenizer, questions, answers)
 
+	# dataset = tf.data.Dataset.from_tensor_slices(({ \
+	# 	'inputs': questions,
+	# 	'dec_inputs': answers[:, :-1]
+	# }, answers[:, 1:]))
 	dataset = tf.data.Dataset.from_tensor_slices(({ \
 		'inputs': questions,
-		'dec_inputs': answers[:, :-1]
-	}, answers[:, 1:]))
+		'dec_inputs': answers[:, :]
+	}, answers[:, :]))
 	dataset = dataset.cache()
 	dataset = dataset.shuffle(len(questions))
 	dataset = dataset.batch(hparams.batch_size)

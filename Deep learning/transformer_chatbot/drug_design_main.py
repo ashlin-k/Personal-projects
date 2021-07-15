@@ -4,39 +4,28 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 from tensorflow.compat.v1 import layers
 import numpy as np
+import argparse
 from transformer import Transformer
-from chatbot_preprocess_data import get_cmdc_dataset, preprocess_sentence, get_args
-from chatbot_testing import evaluate
+from chatbot_preprocess_data import get_args
+from smiles_data_processing import *
 
-VOCAB_SIZE = 2**13
-NUM_LAYERS = 2
-NUM_UNITS = 512
-D_MODEL = 256
-NUM_HEADS = 8
-DROPOUT = 0.1
-NUM_EPOCHS = 1 #20
-BATCH_SIZE = 64
-MAX_LENGTH = 40
+# parameters taken from here: https://www.nature.com/articles/s41598-020-79682-4.pdf
 
-params = {
-    'vocab_size' : VOCAB_SIZE,
-    'num_layers' : NUM_LAYERS,
-    'num_units' : NUM_UNITS,
-    'd_model' : D_MODEL,
-    'num_heads' : NUM_HEADS,
-    'dropout' : DROPOUT,
-    'num_epochs' : NUM_EPOCHS,
-    'batch_size' : BATCH_SIZE,
-    'max_length' : MAX_LENGTH
-}
+VOCAB_SIZE = 71
+NUM_LAYERS = 4
+NUM_UNITS = 2*128
+D_MODEL = 128
+NUM_HEADS = 4
+DROPOUT = 0.1  # not specifcied, perhaps not used
+NUM_EPOCHS = 600000     # or try 20
+BATCH_SIZE = 32
+MAX_LENGTH = 4096 # ?
 
 optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=0.001, beta1=0.9, beta2=0.98, epsilon=1e-9)
 
 def loss_function(y_true : tf.Tensor, y_predict : tf.Tensor) -> (tf.Tensor):
-
-    mask = tf.math.logical_not(tf.math.equal(y_true, 0))
     
-    # loss = SparseCategoricalCrossentropy(y_true, y_pred)
+    mask = tf.math.logical_not(tf.math.equal(y_true, 0))
     loss = tf.keras.losses.SparseCategoricalCrossentropy()(y_true, y_predict)
     mask = tf.cast(mask, dtype=loss.dtype)
     loss *= mask
@@ -68,9 +57,9 @@ def train_step(model : Transformer, x : tf.Tensor, dec_inputs : tf.Tensor, y_tru
 
 if __name__ == "__main__":
 
-    hparams = get_args(params)
+    hparams = get_args()
 
-    dataset, tokenizer = get_cmdc_dataset(hparams)
+    smiles_dataset, tokenizer = get_smiles_dataset(hparams, 'morphine', similarity=70.0)
 
     model = Transformer(VOCAB_SIZE, NUM_LAYERS, NUM_UNITS, D_MODEL, NUM_HEADS, DROPOUT)
     training_losses, training_accuracy = {}, {}
@@ -81,7 +70,7 @@ if __name__ == "__main__":
 
         y_true, y_predict = None, None
 
-        for step, (x_batch_train, y_batch_train) in enumerate(dataset):
+        for step, (x_batch_train, y_batch_train) in enumerate(smiles_dataset):
 
             y_true = y_batch_train
             training_loss, y_predict = train_step(model, x_batch_train['inputs'], \
@@ -90,7 +79,7 @@ if __name__ == "__main__":
         training_losses[i] = training_loss
         training_accuracy[i] = accuracy(y_true, y_predict)
 
-        print("Epoch", i+1, ", loss =", training_losses[i].numpy(), ", accuracy =", training_accuracy[i].numpy())
+        print("Epoch", i+1, ", loss =", training_losses[i], ", accuracy =", training_accuracy[i])
     
 
     ### TEST ###

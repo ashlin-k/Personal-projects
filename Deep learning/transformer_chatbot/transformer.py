@@ -25,11 +25,9 @@ def broadcast_padding_mask(m : tf.Tensor, n_channels : int, n_heads : int) -> (t
     return m2
 
 def broadcast_lookahead_mask(m : tf.Tensor, n_channels : int, n_heads : int) -> (tf.Tensor):
-    m2 = tf.reshape(m, (m.shape[0], n_heads, n_channels, -1))
-    # m2 = tf.transpose(m2, perm=[0, 2, 1, 3])
-    m2 = tf.matmul(m2, m2, transpose_b=True)
-    m2 = tf.where(tf.greater(m2, 0), 1, 0);
-    return m2
+    m2 = tf.reshape(m, (m.shape[0], -1, n_heads, n_channels))
+    m2 = tf.transpose(m2, perm=[0, 2, 1, 3])
+    return m2[:,:,0:n_channels,0:n_channels]
 
 def create_padding_mask(x : tf.Tensor) -> (tf.Tensor):
     mask = tf.cast(tf.math.equal(x, 0), dtype=tf.float32)
@@ -40,7 +38,6 @@ def create_look_ahead_mask(x : tf.Tensor) -> (tf.Tensor):
     look_ahead_mask = 1 - tf.linalg.band_part(tf.ones((seq_len, seq_len), dtype=tf.float32), -1, 0)
     padding_mask = create_padding_mask(x)
     return tf.maximum(look_ahead_mask, padding_mask)
-    # return look_ahead_mask
 
 def scaled_dot_product_attention(query : tf.Tensor, key : tf.Tensor, value : tf.Tensor, \
     padding_mask : tf.Tensor=None, lookahead_mask : tf.Tensor=None) -> (tf.Tensor):
@@ -114,10 +111,10 @@ class MultiHeadAttention(tf.Module):
 
         super(MultiHeadAttention, self).__init__(name=name)
 
-        self.n_heads_encoder = num_heads
+        self.num_heads = num_heads
         self.d_model = d_model
 
-        assert d_model % num_heads == 0
+        assert d_model % self.num_heads == 0
 
         self.depth = d_model
 
@@ -127,9 +124,12 @@ class MultiHeadAttention(tf.Module):
         self.final_dense = layers.Dense(units=d_model)
 
     def split_heads(self, inputs : tf.Tensor, batch_size : int) -> (tf.Tensor):
-
-        inputs = tf.reshape(inputs, (batch_size, -1, self.n_heads_encoder, self.depth))
-        return tf.transpose(inputs, perm=[0, 2, 1, 3])
+        try:
+            inputs = tf.reshape(inputs, (batch_size, -1, self.num_heads, self.depth))
+            return tf.transpose(inputs, perm=[0, 2, 1, 3])
+        except:
+            return inputs[:, tf.newaxis, :, :]
+        
     
     def __call__(self, inputs : dict) -> (tf.Tensor):
 
@@ -234,12 +234,12 @@ class EncoderLayer(tf.Module):
         super(EncoderLayer, self).__init__(name=name)
         self.units = units
         self.d_model = d_model
-        self.n_heads_encoder = num_heads
+        self.num_heads = num_heads
         self.dropout = dropout
 
         self.input_layer = InputLayer(name="encoder_inputs")
         self.padding_input_layer = InputLayer(name="padding_mask")
-        self.attn_layer = MultiHeadAttention(self.d_model, self.n_heads_encoder, name="attention")
+        self.attn_layer = MultiHeadAttention(self.d_model, self.num_heads, name="attention")
         self.dropout_layer1 = DropoutLayer(dropout_rate=self.dropout, name="dropout1")
         self.norm_layer1 = NormalizationLayer(samples_axis=1, name="norm1")
         self.dense_output_layer1 = layers.Dense(units=self.units, activation='relu', name="dense1")
@@ -277,21 +277,22 @@ class DecoderLayer(tf.Module):
         super().__init__(name=name)
         self.units = units
         self.d_model = d_model
-        self.n_heads_encoder = num_heads
+        self.num_heads = num_heads
         self.dropout = dropout
 
         self.input_layer = InputLayer(name="decoder_inputs")
         self.enc_out_input_layer = InputLayer(name="encoder_outputs")
         self.lookahead_mask_input_layer = InputLayer(name="lookahead_mask")
         self.padding_mask_input_layer = InputLayer(name="padding_mask")
-        self.attn_layer1 = MultiHeadAttention(self.d_model, self.n_heads_encoder, name="attention1")
+        self.attn_layer1 = MultiHeadAttention(self.d_model, self.num_heads, name="attention1")
+        self.dropout_layer1 = DropoutLayer(dropout_rate=self.dropout, name="dropout1")
         self.norm_layer1 = NormalizationLayer(samples_axis=1, name="norm1")
-        self.attn_layer2 = MultiHeadAttention(self.d_model, self.n_heads_encoder, name="attention2")
-        self.dropout_layer1 = DropoutLayer(dropout_rate=self.dropout, name="dropout1")        
+        self.attn_layer2 = MultiHeadAttention(self.d_model, self.num_heads, name="attention2")  
+        self.dropout_layer2 = DropoutLayer(dropout_rate=self.dropout, name="dropout2")      
         self.norm_layer2 = NormalizationLayer(samples_axis=1, name="norm2")
         self.dense_output_layer1 = layers.Dense(units=self.units, activation='relu', name="dense1")
         self.dense_output_layer2 = layers.Dense(units=self.d_model, name="dense2")
-        self.dropout_layer2 = DropoutLayer(dropout_rate=self.dropout, name="dropout2")
+        self.dropout_layer3 = DropoutLayer(dropout_rate=self.dropout, name="dropout3")
         self.norm_layer3 = NormalizationLayer(samples_axis=1, name="norm3")
 
     def __call__(self, x : tf.Tensor, encoder_outputs : tf.Tensor, padding_mask : tf.Tensor, \
@@ -309,20 +310,21 @@ class DecoderLayer(tf.Module):
             'padding_mask' : None,
             'lookahead_mask': look_ahead_mask })
 
+        attention1 = self.dropout_layer1(attention1, training=training)
         attention1 = self.norm_layer1(attention1 + inputs)
 
         attention2 = self.attn_layer2(inputs={
-            'query': attention1,
+            'query': enc_outputs,
             'key': enc_outputs,
-            'value': enc_outputs,
+            'value': attention1,
             'padding_mask': padding_mask,
             'lookahead_mask' : None })
-        attention2 = self.dropout_layer1(attention2, training=training)
+        attention2 = self.dropout_layer2(attention2, training=training)
         attention2 = self.norm_layer2(attention2 + attention1)
 
         outputs = self.dense_output_layer1(attention2)
         outputs = self.dense_output_layer2(outputs)
-        outputs = self.dropout_layer2(outputs, training=training)
+        outputs = self.dropout_layer3(outputs, training=training)
         outputs = self.norm_layer3(outputs + attention2)
 
         return outputs
@@ -330,15 +332,14 @@ class DecoderLayer(tf.Module):
 class Transformer(tf.Module):
 
     def __init__(self, vocab_size : int, num_layers : int, units : int, d_model : int, \
-        num_enc_heads : int, num_dec_heads : int, dropout : float, name : str="transformer"):
+        num_heads : int, dropout : float, name : str="transformer"):
 
         super(Transformer, self).__init__(name=name)
         self.vocab_size = vocab_size
         self.num_layers = num_layers
         self.units = units
         self.d_model = d_model
-        self.n_heads_encoder = num_enc_heads
-        self.n_heads_decoder = num_dec_heads
+        self.num_heads = num_heads
         self.dropout = dropout
 
         # transformer layers
@@ -355,7 +356,7 @@ class Transformer(tf.Module):
         self.encoder_embedding_layer = tf.keras.layers.Embedding(self.vocab_size, self.d_model, name="encoder_embedding")
         self.encoder_pos_enc_layer = PositionalEncoding(self.vocab_size, self.d_model, name="encoder_pos_enc")
         self.encoder_dropout_layer = DropoutLayer(dropout_rate=self.dropout, name="encoder_dropout")
-        self.encoder_enc_layers = [EncoderLayer(self.units, self.d_model, self.n_heads_encoder, \
+        self.encoder_enc_layers = [EncoderLayer(self.units, self.d_model, self.num_heads, \
                 self.dropout, name="encoder_layer_{}".format(i),) for i in range(self.num_layers)]
 
         # decoder layers
@@ -366,7 +367,7 @@ class Transformer(tf.Module):
         self.decoder_embedding_layer = tf.keras.layers.Embedding(self.vocab_size, self.d_model, name="decoder_embedding")
         self.decoder_pos_enc_layer = PositionalEncoding(self.vocab_size, self.d_model, name="decoder_pos_enc")
         self.decoder_dropout_layer = DropoutLayer(dropout_rate=self.dropout, name="decoder_dropout")
-        self.decoder_dec_layers = [DecoderLayer(self.units, self.d_model, self.n_heads_decoder, \
+        self.decoder_dec_layers = [DecoderLayer(self.units, self.d_model, self.num_heads, \
                 self.dropout, name="decoder_layer_{}".format(i),) for i in range(self.num_layers)]
     
     def __call__(self, inputs : tf.Tensor, dec_inputs : tf.Tensor, training : bool=True) -> (tf.Tensor):
@@ -398,7 +399,6 @@ class Transformer(tf.Module):
 
         inputs = self.encoder_input_layer(inputs)
         padding_mask = self.encoder_padding_mask_input_layer(padding_mask)
-        # padding_mask = tf.keras.Input(shape=(1, 1, None), name="padding_mask")
 
         embeddings = self.encoder_embedding_layer(inputs)
         embeddings *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
