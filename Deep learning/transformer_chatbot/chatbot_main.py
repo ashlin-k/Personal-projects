@@ -14,7 +14,7 @@ NUM_UNITS = 512
 D_MODEL = 256
 NUM_HEADS = 8
 DROPOUT = 0.1
-NUM_EPOCHS = 1 #20
+NUM_EPOCHS = 20
 BATCH_SIZE = 64
 MAX_LENGTH = 40
 
@@ -36,7 +36,6 @@ def loss_function(y_true : tf.Tensor, y_predict : tf.Tensor) -> (tf.Tensor):
 
     mask = tf.math.logical_not(tf.math.equal(y_true, 0))
     
-    # loss = SparseCategoricalCrossentropy(y_true, y_pred)
     loss = tf.keras.losses.SparseCategoricalCrossentropy()(y_true, y_predict)
     mask = tf.cast(mask, dtype=loss.dtype)
     loss *= mask

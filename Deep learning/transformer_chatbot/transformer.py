@@ -18,6 +18,8 @@ from kanawaty_layers import *
 # reference code: https://github.com/bryanlimy/tf2-transformer-chatbot/blob/master/transformer/model.py
 
 def broadcast_padding_mask(m : tf.Tensor, n_channels : int, n_heads : int) -> (tf.Tensor):
+    if tf.size(m).numpy() == 1:
+        return tf.broadcast_to(m, (1,1, n_heads, n_channels))
     m2 = tf.transpose(m, perm=[0,1,3,2])        # 64,1,40,1
     m2 = tf.broadcast_to(m2, (m2.shape[0], m2.shape[1], m2.shape[2], n_channels))   # 64,1,40,5
     m2 = tf.reshape(m2, (m2.shape[0], -1, n_heads, n_channels)) # 64,5,8,5
@@ -25,6 +27,8 @@ def broadcast_padding_mask(m : tf.Tensor, n_channels : int, n_heads : int) -> (t
     return m2
 
 def broadcast_lookahead_mask(m : tf.Tensor, n_channels : int, n_heads : int) -> (tf.Tensor):
+    if tf.size(m).numpy() == 1:
+        return tf.broadcast_to(m, (1,1, n_heads, n_channels))
     m2 = tf.reshape(m, (m.shape[0], -1, n_heads, n_channels))
     m2 = tf.transpose(m2, perm=[0, 2, 1, 3])
     return m2[:,:,0:n_channels,0:n_channels]
@@ -78,7 +82,11 @@ def scaled_dot_product_attention(query : tf.Tensor, key : tf.Tensor, value : tf.
     # softmax is normalized on the last axis (seq_len_k) so that the scores
     # add up to 1.
     attention_weights = tf.nn.softmax(logits, axis=-1)  # (..., seq_len_q, seq_len_k)
-    output = tf.matmul(attention_weights, value)  # (..., seq_len_q, depth_v)
+    try:
+        output = tf.matmul(attention_weights, value)  # (..., seq_len_q, depth_v)
+    except:
+        v_dim = value.shape[2]
+        output = tf.matmul(attention_weights[:,:,:,:v_dim], value)
 
     return output 
 
@@ -372,8 +380,13 @@ class Transformer(tf.Module):
     
     def __call__(self, inputs : tf.Tensor, dec_inputs : tf.Tensor, training : bool=True) -> (tf.Tensor):
 
-        inputs = self.input_layer(inputs)
-        dec_inputs = self.dec_input_layer(dec_inputs)
+        input_size = None
+        if not training and inputs.shape != dec_inputs.shape:
+            input_size = inputs.shape if tf.size(inputs) > tf.size(dec_inputs) else dec_inputs.shape
+            input_size = list(input_size)
+
+        inputs = self.input_layer(inputs, input_size)
+        dec_inputs = self.dec_input_layer(dec_inputs, input_size)
 
         # Encoder padding mask
         enc_padding_mask = self.enc_padding_mask_layer(inputs)

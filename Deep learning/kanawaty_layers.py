@@ -14,7 +14,19 @@ class InputLayer(tf.Module):
 
         super(InputLayer, self).__init__(name=name)
     
-    def __call__(self, x : tf.Tensor) -> (tf.Tensor):
+    def __call__(self, x : tf.Tensor, shape : list=None) -> (tf.Tensor):
+
+        if x.dtype != tf.float32:
+            x = tf.cast(x, tf.float32)
+
+        if shape is not None and list(x.shape) != shape:
+            size_diff = tf.abs(tf.subtract(x.shape, shape))
+            padding_size = tuple([x.shape[i] if size_diff[i] == 0 else size_diff[i].numpy() \
+                for i in range(len(size_diff))])
+            axis = np.argmax(size_diff)
+            padding = tf.zeros(padding_size, dtype=tf.float32)
+            
+            return tf.concat((x, padding), axis=axis)
 
         return x
 
