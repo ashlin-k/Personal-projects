@@ -3,6 +3,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 from tensorflow.compat.v1 import layers
+from datetime import datetime
 import numpy as np
 from transformer import Transformer
 from chatbot_preprocess_data import get_cmdc_dataset, preprocess_sentence, get_args
@@ -18,6 +19,10 @@ NUM_EPOCHS = 20
 BATCH_SIZE = 64
 MAX_LENGTH = 40
 
+cwd = os.getcwd()
+ckpt_dir = os.path.join(cwd, "transformer_chatbot\\saved_checkpoints\\")
+ckpt_files = []
+
 params = {
     'vocab_size' : VOCAB_SIZE,
     'num_layers' : NUM_LAYERS,
@@ -31,6 +36,29 @@ params = {
 }
 
 optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=0.001, beta1=0.9, beta2=0.98, epsilon=1e-9)
+
+def save_model(checkpoint: tf.train.Checkpoint, ckpt_prefix : str) -> ():    
+    ckpt_path = checkpoint.save(ckpt_prefix)
+    ckpt_files.append(ckpt_path)
+
+def load_model(checkpoint : tf.train.Checkpoint, ckpt_prefix : str) -> ():
+    status = checkpoint.restore(ckpt_prefix)
+
+def setup_checkpoints(name : str, model : tf.Module, clear_existing_files : bool=False) -> (tf.train.Checkpoint, str):
+
+    if not os.path.exists(ckpt_dir):
+        os.makedirs(ckpt_dir)
+
+    if clear_existing_files:
+        filelist = [ f for f in os.listdir(ckpt_dir) ]
+        for f in filelist:
+            os.remove(os.path.join(ckpt_dir,f))
+
+    checkpoint = tf.train.Checkpoint(optimizer=optimizer, model=model)
+    date = datetime.today().strftime('%Y-%m-%d')
+    ckpt_prefix = os.path.join(ckpt_dir, "ckpt_" + name + "_" + date)
+
+    return checkpoint, ckpt_prefix
 
 def loss_function(y_true : tf.Tensor, y_predict : tf.Tensor) -> (tf.Tensor):
 
@@ -65,14 +93,16 @@ def train_step(model : Transformer, x : tf.Tensor, dec_inputs : tf.Tensor, y_tru
 
     return training_loss, y_predict
 
-if __name__ == "__main__":
+def train_model() -> (str):
 
     hparams = get_args(params)
 
     dataset, tokenizer = get_cmdc_dataset(hparams)
 
     model = Transformer(VOCAB_SIZE, NUM_LAYERS, NUM_UNITS, D_MODEL, NUM_HEADS, DROPOUT)
-    training_losses, training_accuracy = {}, {}
+    training_losses, training_accuracy = [], []
+
+    checkpoint, ckpt_prefix = setup_checkpoints("chatbot", model, clear_existing_files=False)
 
     ### TRAIN ###
 
@@ -86,12 +116,48 @@ if __name__ == "__main__":
             training_loss, y_predict = train_step(model, x_batch_train['inputs'], \
                 x_batch_train['dec_inputs'], y_batch_train)        
         
-        training_losses[i] = training_loss
-        training_accuracy[i] = accuracy(y_true, y_predict)
+        training_losses.append(training_loss)
+        acc = accuracy(y_true, y_predict)
+        training_accuracy.append(acc)
 
-        print("Epoch", i+1, ", loss =", training_losses[i].numpy(), ", accuracy =", training_accuracy[i].numpy())
-    
+        # save checkpoint
+        save_model(checkpoint, ckpt_prefix)
+
+        print("Epoch", i+1, ", loss =", training_loss.numpy(), ", accuracy =", acc.numpy())    
 
     ### TEST ###
 
+    # find and load model with best params
+    iBest = training_losses.index(min(training_losses))  
+    if len(ckpt_files) > 0:
+        if iBest > len(ckpt_files) - 1:
+            iBest = len(ckpt_files) - 1
+        best_ckpt = ckpt_files[iBest]
+        print("Best checkpoint file is", best_ckpt)
+        load_model(checkpoint, best_ckpt)
+
+    # test
     evaluate(hparams, model, tokenizer)
+
+    return best_ckpt
+
+
+def run_trained_model(checkpoint_name : str) -> ():
+
+    hparams = get_args(params)
+
+    dataset, tokenizer = get_cmdc_dataset(hparams)
+
+    model = Transformer(VOCAB_SIZE, NUM_LAYERS, NUM_UNITS, D_MODEL, NUM_HEADS, DROPOUT)
+    training_losses, training_accuracy = [], []
+
+    checkpoint, ckpt_prefix = setup_checkpoints("chatbot", model, clear_existing_files=False)
+
+    load_model(checkpoint, checkpoint_name)
+    evaluate(hparams, model, tokenizer)
+
+if __name__ == "__main__":
+
+    train_model()
+
+    # run_trained_model("C:\\Users\\ashli\\Documents\\GIT - personal_projects\\Deep learning\\transformer_chatbot\\saved_checkpoints\\ckpt_chatbot_2021-07-26-6")

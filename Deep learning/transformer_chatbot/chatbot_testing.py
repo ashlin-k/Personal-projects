@@ -37,7 +37,7 @@ def predict(hparams, model, tokenizer, sentence):
 
     prediction = inference(hparams, model, tokenizer, sentence)
 
-    predicted_sentence = tokenizer.decode([i for i in prediction if i < tokenizer.vocab_size])
+    predicted_sentence = tokenizer.decode([i for i in prediction if i > 0 and i < tokenizer.vocab_size])
 
     return predicted_sentence
 

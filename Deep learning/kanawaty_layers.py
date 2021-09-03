@@ -16,6 +16,9 @@ class InputLayer(tf.Module):
     
     def __call__(self, x : tf.Tensor, shape : list=None) -> (tf.Tensor):
 
+        if x is None:
+            return x
+
         if x.dtype != tf.float32:
             x = tf.cast(x, tf.float32)
 

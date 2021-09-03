@@ -376,7 +376,7 @@ class Transformer(tf.Module):
         self.decoder_pos_enc_layer = PositionalEncoding(self.vocab_size, self.d_model, name="decoder_pos_enc")
         self.decoder_dropout_layer = DropoutLayer(dropout_rate=self.dropout, name="decoder_dropout")
         self.decoder_dec_layers = [DecoderLayer(self.units, self.d_model, self.num_heads, \
-                self.dropout, name="decoder_layer_{}".format(i),) for i in range(self.num_layers)]
+            self.dropout, name="decoder_layer_{}".format(i),) for i in range(self.num_layers)]
     
     def __call__(self, inputs : tf.Tensor, dec_inputs : tf.Tensor, training : bool=True) -> (tf.Tensor):
 
@@ -389,7 +389,7 @@ class Transformer(tf.Module):
         dec_inputs = self.dec_input_layer(dec_inputs, input_size)
 
         # Encoder padding mask
-        enc_padding_mask = self.enc_padding_mask_layer(inputs)
+        enc_padding_mask = None # self.enc_padding_mask_layer(inputs)
 
         # Used in the 1st attention block in the decoder.
         # It is used to pad and mask future tokens in the input received by
@@ -398,7 +398,7 @@ class Transformer(tf.Module):
 
         # Used in the 2nd attention block in the decoder.
         # This padding mask is used to mask the encoder outputs.
-        dec_padding_mask = self.dec_padding_mask_layer(inputs)
+        dec_padding_mask = None # self.dec_padding_mask_layer(inputs)
 
         enc_outputs = self.encoder(inputs, enc_padding_mask, training)
         
@@ -443,3 +443,4 @@ class Transformer(tf.Module):
         
         return outputs
 
+    
